@@ -1,7 +1,9 @@
 package co.com.sofka.crud.repositories;
 
 import co.com.sofka.crud.models.TodoList;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface TodoListRepository extends CrudRepository<TodoList, Long> {
+@Repository
+public interface TodoListRepository extends JpaRepository<TodoList, Long> {
 }

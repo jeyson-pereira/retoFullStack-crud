@@ -28,4 +28,8 @@ public class TodoList {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Todo> todos;
+
+    public void removeTodo(Todo todo) {
+        todos.remove(todo);
+    }
 }
