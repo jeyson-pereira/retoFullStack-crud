@@ -142,6 +142,10 @@ public class TodoService {
                     throw new RuntimeException(NOT_FOUND_ID);
                 });
 
+        todoRepository.findById(todoDTO.getId()).orElseThrow(() -> {
+            throw new RuntimeException(NOT_FOUND_ID);
+        });
+
         for(Todo todo : listTodo.getTodos()){
             if(todo.getId().equals(todoDTO.getId())){
                 todo.setCompleted(todoDTO.isCompleted());

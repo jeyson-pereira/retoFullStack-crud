@@ -30,6 +30,10 @@ export default function TodoForm(props) {
         type="text"
         placeholder="¿Que tienes pendiente?"
         required
+        pattern="[A-Za-zÀ-ÿ0-9@\\s]+"
+        title="No se permiten simbolos o caracteres especiales diferentes a letras con acento"
+        minLength={3}
+        maxLength={150}
         defaultValue={todoName}
         onChange={(event) => setTodoName(event.target.value)}
       />
