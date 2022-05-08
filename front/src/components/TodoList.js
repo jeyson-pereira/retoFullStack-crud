@@ -3,6 +3,7 @@ import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 
 export default function TodoList(props) {
+  /* Ordenar los elementos de la lista por id. */
   props.list.items.sort((a, b) => a.id - b.id);
 
   const [selected, setSelected] = useState(null);

@@ -1,6 +1,11 @@
 import React from "react";
 
 export default function Todo(props) {
+  /**
+   * Cuando se hace clic en la casilla de verificación, se llama a la función onCompleted, que
+   * actualiza el estado completado de la tarea al contrario de lo que era antes.
+   * @param event - El evento que desencadenó la función.
+   */
   const updateCompleted = (event) => {
     props.onCompleted(props.todo.listId, {
       id: props.todo.id,

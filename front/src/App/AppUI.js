@@ -15,6 +15,7 @@ export default function AppUI() {
     error,
   } = useContext(TodoContext);
 
+  /* Ordenar las listas por id. */
   lists.sort((a, b) => a.id - b.id);
   return (
     <div className="container">

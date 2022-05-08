@@ -3,12 +3,18 @@ import React, { useState, useEffect } from "react";
 export default function TodoForm(props) {
   const [todoName, setTodoName] = useState("");
 
+  /* Un hook que se llama cuando se monta el componente y cuando cambia props.selected. */
   useEffect(() => {
     if (props.selected) {
       setTodoName(props.selected.name);
     }
   }, [props.selected]);
 
+  /**
+   * Cuando el usuario hace clic en el botón de actualización, el objeto de tareas pendientes se
+   * actualiza con el nuevo nombre y se llama a la función onUpdate con el listId y el objeto de tareas
+   * pendientes actualizado.
+   */
   const updateTodo = () => {
     let todo = {
       id: props.selected.id,
@@ -20,6 +26,10 @@ export default function TodoForm(props) {
     props.setSelected(null);
   };
 
+  /**
+   * Cuando el usuario hace clic en el botón, se crea un nuevo todo mediante la funcion
+   * onAdd pasada con listId y el nombre del todo
+   */
   const createTodo = () => {
     props.onAdd(props.listId, todoName);
   };

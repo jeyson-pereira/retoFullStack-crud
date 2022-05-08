@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function ListForm(props) {
   const [listName, setListName] = useState("");
+  /* Devolver un formulario con una entrada de texto y un botón de envío. */
   return (
     <div class="col col-md-3 my-4">
       <form onSubmit={() => props.onAddList(listName)}>
