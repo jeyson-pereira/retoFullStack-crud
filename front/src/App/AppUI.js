@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext } from "react";
 import ListForm from "../components/ListForm";
 import TodoList from "../components/TodoList";
 import { TodoContext } from "../context";
@@ -17,13 +17,16 @@ export default function AppUI() {
 
   lists.sort((a, b) => a.id - b.id);
   return (
-    <Fragment>
+    <div className="container">
       <h1>TodoList App</h1>
-      {loading && <p>Estamos cargando, no desesperes...</p>}
-      {error && <p>Desespérate, hubo un error...</p>}
-      {!loading && !error && !lists.length && <p>¡Crea tu primer Lista!</p>}
+      {loading && <p className="fw-bold">Estamos cargando, no desesperes...</p>}
+      {error && <p className="fw-bold">Desespérate, hubo un error...</p>}
 
       <ListForm onAddList={addNewList} />
+
+      {!loading && !error && !lists.length && (
+        <p className="mark fst-italic">¡Crea tu primer Lista!</p>
+      )}
 
       {lists.map((list) => {
         return (
@@ -37,6 +40,6 @@ export default function AppUI() {
           />
         );
       })}
-    </Fragment>
+    </div>
   );
 }

@@ -25,19 +25,28 @@ export default function TodoForm(props) {
   };
 
   return (
-    <form onSubmit={props.selected ? () => updateTodo() : () => createTodo()}>
-      <input
-        type="text"
-        placeholder="¿Que tienes pendiente?"
-        required
-        pattern="[A-Za-zÀ-ÿ0-9@ ]+"
-        title="No se permiten simbolos o caracteres especiales diferentes a letras con acento"
-        minLength={3}
-        maxLength={150}
-        defaultValue={todoName}
-        onChange={(event) => setTodoName(event.target.value)}
-      />
-      <input type="submit" value={props.selected ? "Actualizar" : "Crear"} />
-    </form>
+    <div class="col col-md-5 my-2">
+      <form onSubmit={props.selected ? () => updateTodo() : () => createTodo()}>
+        <div className="input-group">
+          <input
+            type="text"
+            placeholder="¿Que tienes pendiente?"
+            required
+            pattern="[A-Za-zÀ-ÿ0-9@ ]+"
+            title="No se permiten simbolos o caracteres especiales diferentes a letras con acento"
+            minLength={3}
+            maxLength={150}
+            defaultValue={todoName}
+            onChange={(event) => setTodoName(event.target.value)}
+            className="form-control prepend"
+          />
+          <input
+            type="submit"
+            value={props.selected ? "Actualizar" : "Crear"}
+            className="btn btn-primary"
+          />
+        </div>
+      </form>
+    </div>
   );
 }
